@@ -1,6 +1,11 @@
 import { Segment, SegmentGroup, ItemGroup, Item, Icon, List, Button } from 'semantic-ui-react'
 import EventListAttendee from './EventListAttendee'
-export default function EventListItem() {
+import { AppEvent, Attendee } from '../../types/AppEvent'
+
+type Props = {
+    event: AppEvent
+};
+export default function EventListItem({ event }: Props) {
     return (
         <SegmentGroup>
             <Segment>
@@ -9,11 +14,11 @@ export default function EventListItem() {
                         <Item.Image size='tiny' circular src='/user.png' />
                         <Item.Content>
                             <Item.Header>
-                                Event title
+                                {event.title}
 
                             </Item.Header>
                             <Item.Description>
-                                Hosted By Muhsin
+                                {event.hostedBy}
                             </Item.Description>
                         </Item.Content>
                     </Item>
@@ -21,19 +26,21 @@ export default function EventListItem() {
             </Segment>
             <Segment>
                 <span>
-                    <Icon name='clock' />
-                    <Icon name='marker' />
+                    <Icon name='clock' />{new Date(event.date).toLocaleDateString()}
+                    <Icon name='marker' />{event.venue}
                 </span>
             </Segment>
             <Segment>
                 <List horizontal>
-                    <EventListAttendee />
-                    <EventListAttendee />
-                    <EventListAttendee />
+                    {
+                        event.attendees.map((attendee: Attendee) => (
+                            <EventListAttendee attendee={attendee} key={attendee.id} />
+                        ))
+                    }
                 </List>
             </Segment>
             <Segment clearing>
-                <span>Descriptopn of Event</span>
+                <span>{event.description}</span>
                 <Button color='teal' floated='right' content='View'></Button>
             </Segment>
         </SegmentGroup>

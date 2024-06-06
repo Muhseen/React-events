@@ -1,6 +1,8 @@
 body {
+  height: auto;
   background-color: #eaeaea;
 
+  justify-content: center;
 }
 
 .ui.fixed.menu {
@@ -9,6 +11,7 @@ body {
 
 .ui.main.container {
   margin-top: 7em;
+
 }
 
 /*@import url('semantic-ui-css/semantic.min.css');
