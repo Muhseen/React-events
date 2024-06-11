@@ -4,8 +4,9 @@ import { AppEvent, Attendee } from '../../types/AppEvent'
 
 type Props = {
     event: AppEvent
+    handleSelectEvent: (event: AppEvent) => void
 };
-export default function EventListItem({ event }: Props) {
+export default function EventListItem({ event, handleSelectEvent }: Props) {
     return (
         <SegmentGroup>
             <Segment>
@@ -41,7 +42,7 @@ export default function EventListItem({ event }: Props) {
             </Segment>
             <Segment clearing>
                 <span>{event.description}</span>
-                <Button color='teal' floated='right' content='View'></Button>
+                <Button color='teal' floated='right' content='View' onClick={() => { handleSelectEvent(event) }}></Button>
             </Segment>
         </SegmentGroup>
     )

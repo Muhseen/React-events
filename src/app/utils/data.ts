@@ -1,8 +1,9 @@
+import { createId } from '@paralleldrive/cuid2';
 import { AppEvent } from "../types/AppEvent"
 
 const dummyData: AppEvent[] = [
     {
-        id: "1",
+        id: createId(),
         title: "Tech Conference 2024",
         date: "2024-08-12T09:00:00Z",
         description: "An exciting conference about the latest in tech.",
@@ -24,7 +25,7 @@ const dummyData: AppEvent[] = [
         ]
     },
     {
-        id: "2",
+        id: createId(),
         title: "Art & Design Expo",
         date: "2024-09-05T10:00:00Z",
         description: "Explore the latest trends in art and design.",
@@ -46,7 +47,7 @@ const dummyData: AppEvent[] = [
         ]
     },
     {
-        id: "3",
+        id: createId(),
         title: "Music Fest 2024",
         date: "2024-07-20T15:00:00Z",
         description: "Join us for a day of great music and fun.",
@@ -68,7 +69,7 @@ const dummyData: AppEvent[] = [
         ]
     },
     {
-        id: "4",
+        id: createId(),
         title: "Startup Pitch Night",
         date: "2024-06-30T18:00:00Z",
         description: "Watch the best startups pitch their ideas.",
