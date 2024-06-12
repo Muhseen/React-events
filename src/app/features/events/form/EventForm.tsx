@@ -3,15 +3,15 @@ import { ChangeEvent, useState } from 'react'
 import { Segment, Form, Header, Button } from 'semantic-ui-react'
 import { AppEvent } from '../../../types/AppEvent'
 import { createId } from '@paralleldrive/cuid2'
-type props = {
-    setFormOpen: (value: boolean) => void,
-    handleAddEvent: (event: AppEvent) => void,
-    selectedEvent: AppEvent | null,
+// type props = {
+//     setFormOpen: (value: boolean) => void,
+//     handleAddEvent: (event: AppEvent) => void,
+//     selectedEvent: AppEvent | null,
 
-}
+// }
 
-export default function EventForm({ setFormOpen, handleAddEvent, selectedEvent }: props) {
-    const initialValues = selectedEvent ?? {
+export default function EventForm() {
+    const initialValues = {
         id: '',
         title: '',
         date: '',
@@ -24,8 +24,6 @@ export default function EventForm({ setFormOpen, handleAddEvent, selectedEvent }
     }
     const [values, setValues] = useState<AppEvent>(initialValues)
     function onSubmit() {
-        console.log(values);
-        handleAddEvent(values);
         setValues(initialValues)
     }
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -56,7 +54,7 @@ export default function EventForm({ setFormOpen, handleAddEvent, selectedEvent }
                         <input type="text" placeholder='Description' name="description" value={values?.description} onChange={(e) => { handleInputChange(e) }} />
                     </Form.Field>
                     <Button type="submit" floated='right'>Submit</Button>
-                    <Button type="button" floated='right' onClick={() => setFormOpen(false)}>Cancel</Button>
+                    <Button type="button" floated='right' onClick={() => { }}>Cancel</Button>
                 </Form>
             </Segment>
         </>

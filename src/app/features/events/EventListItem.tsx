@@ -1,12 +1,13 @@
 import { Segment, SegmentGroup, ItemGroup, Item, Icon, List, Button } from 'semantic-ui-react'
 import EventListAttendee from './EventListAttendee'
 import { AppEvent, Attendee } from '../../types/AppEvent'
+import { Link } from 'react-router-dom';
 
 type Props = {
     event: AppEvent
-    handleSelectEvent: (event: AppEvent) => void
+    // handleSelectEvent: (event: AppEvent) => void
 };
-export default function EventListItem({ event, handleSelectEvent }: Props) {
+export default function EventListItem({ event }: Props) {
     return (
         <SegmentGroup>
             <Segment>
@@ -42,7 +43,8 @@ export default function EventListItem({ event, handleSelectEvent }: Props) {
             </Segment>
             <Segment clearing>
                 <span>{event.description}</span>
-                <Button color='teal' floated='right' content='View' onClick={() => { handleSelectEvent(event) }}></Button>
+                <Button color='red' floated='right' content='Delete' onClick={() => { }}></Button>
+                <Button as={Link} to={`/events/${event.id}`} color='teal' floated='right' content='View' onClick={() => { }}></Button>
             </Segment>
         </SegmentGroup>
     )
